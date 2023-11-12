@@ -23,12 +23,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-        // Configuración de enemigos
-        GameObject enemyGameObject = new GameObject("enemy");
-        SpriteRenderer enemySpriteRenderer = enemyGameObject.AddComponent<SpriteRenderer>();
-        enemySpriteRenderer.sprite = GameAssets.Instance.enemySprite;
-        enemy = enemyGameObject.AddComponent<Enemy>();  
-
         //configuración Grid
         grid = new Grid(15, 10);
         enemy.Setup(grid);
