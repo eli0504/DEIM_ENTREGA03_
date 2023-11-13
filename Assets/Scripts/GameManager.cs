@@ -20,12 +20,12 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
+   // private void Start()
+  //  {
 
         //configuración Grid
-        grid = new Grid(15, 10);
-        enemy.Setup(grid);
-        grid.Setup(enemy);
-    }
+       // grid = new Grid(15, 10);
+      // enemy.Setup(grid);
+      //  grid.Setup(enemy);
+    //}
 }

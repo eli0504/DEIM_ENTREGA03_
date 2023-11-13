@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private enum Direction
+   /* private enum Direction
     {
         Left,
         Right,
         Down,
         Up
-    }
+    }*/
 
+   
+   //VARIABLES
     private Grid grid;
 
     private Vector2Int gridPosition; // Posición 2D
@@ -21,7 +23,12 @@ public class Enemy : MonoBehaviour
 
     private float gridMoveTimer;
     private float gridMoveTimerMax = 1f; // El enemigo se moverá a cada segundo
-    private Direction gridMoveDirection; // Dirección del enemigo
+
+    //private Vector3 _directionRight = Vector2.right; // Dirección del enemigo
+    //private Vector3 _directionLeft = Vector2.left; // Dirección del enemigo
+
+    private float speed = 5f; //velocity
+    
 
     public void Setup(Grid grid)
     {
@@ -29,16 +36,28 @@ public class Enemy : MonoBehaviour
         this.grid = grid;
     }
 
+    private void Update()
+    {
+        Movement();
+    }
+
     private void Awake()
     {
         startGridPosition = new Vector2Int(0, 0);
         gridPosition = startGridPosition;
-
-        gridMoveDirection = Direction.Right; // Dirección arriba por defecto
     }
 
     private void Movement()
     {
+        gridMoveTimer += Time.deltaTime;
+        if (gridMoveTimer >= gridMoveTimerMax)
+        {
+            gridMoveTimer -= gridMoveTimerMax; // Se reinicia el temporizador
 
+            //this.transform.position += _directionRight * speed * Time.deltaTime; //right movement
+
+        }
     }
+
+    
 }
