@@ -10,16 +10,19 @@ public class enemies : MonoBehaviour
     private float gridMoveTimerMax = 1f;
 
     //MOVESPEED
-    public float moveSpeed = 300f;
+    public float moveSpeed = 500f;
 
     //TEXT
     [SerializeField] private TextMeshProUGUI messsageText;
 
+    //PANEL
+    public GameObject gameOverPanel;
 
     private void Awake()
     {
-        //Panel.gameObject.SetActive(false);
+        gameOverPanel.SetActive(false); 
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -49,12 +52,13 @@ public class enemies : MonoBehaviour
         {
             Time.timeScale = 0;
             Debug.Log("GAMEOVER");
+            GameOverUI();
         }
     }
 
     private void GameOverUI()
     {
-        //Panel.gameObject.SetActive(true);
+        gameOverPanel.SetActive(true);
         messsageText.text = "GAME OVER";
     }
 
